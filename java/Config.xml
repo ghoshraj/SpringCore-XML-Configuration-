@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<bean id="a1" class="SpringCore.SpringCore.A">
+
+
+		<constructor-arg value="10">
+		</constructor-arg>
+
+		<constructor-arg value="20">
+		</constructor-arg>
+
+		<constructor-arg value="Rajesh">
+		</constructor-arg>
+	</bean>
+	<bean id="credit" class="dao.CreditCard" />
+	<bean id="debit" class="dao.DebitCard" />
+	<bean id="payment" class="dao.PaymentService">
+		<constructor-arg ref="credit" />
+		<property name="payment" ref="debit"/>
+	</bean>
+	<bean id="disel" class="car.DiselEngine" />
+	<bean id="petrol" class="car.PetrolEngine" />
+	<bean id="eng" class="car.Car">
+		<constructor-arg ref="disel" />
+		<property name="eng" ref="petrol"/>
+	</bean>
+</beans>
